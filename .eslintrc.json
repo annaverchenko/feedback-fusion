@@ -1,0 +1,49 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // 1. React & Next (explicit, top)
+          ["^react", "^next"],
+
+          // 2. External packages
+          ["^@?\\w"],
+
+          // 3. App aliases
+          ["^@/"],
+
+          // 4. Relative imports
+          ["^\\./"],
+          ["^\\.\\./"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/app/api/**", "**/*.server.ts"],
+      "rules": {
+        // allow node-specific imports here
+      }
+    }
+  ]
+}
