@@ -2,6 +2,9 @@
 
 import { Map, MessageSquare, Sparkle } from "lucide-react";
 import Link from "next/link";
+import ThemeToggle from "./theme-toggle";
+import { SignedOut, SignInButton } from "@clerk/nextjs";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
     return (
@@ -24,6 +27,16 @@ export default function Navbar() {
                         <MessageSquare className="h-4 w-4" />
                         Feedback
                     </Link>
+                </div>
+                <div className="flex items-center gap-4">
+                    <ThemeToggle />
+                    <SignedOut>
+                        <SignInButton>
+                            <Button asChild>
+                                <Link href="/sign-in">Sign In</Link>
+                            </Button>
+                        </SignInButton>
+                    </SignedOut>
                 </div>
             </div>
         </nav>
