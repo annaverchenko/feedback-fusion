@@ -2,19 +2,20 @@
 // Define your database models
 
 generator client {
-    provider = "prisma-client"
+    provider = "prisma-client-js"
     output   = "../generated/prisma"
 }
 
 datasource db {
     provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 // Example models
 
 model User {
     id          Int     @id @default(autoincrement())
-    clerkUserId String
+    clerkUserId String  @unique
     email       String  @unique
     name        String?
     image       String

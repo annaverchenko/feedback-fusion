@@ -1,9 +1,10 @@
 "use client";
 
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Map, MessageSquare, Sparkle } from "lucide-react";
 import Link from "next/link";
+
 import ThemeToggle from "./theme-toggle";
-import { SignedOut, SignInButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 
 export default function Navbar() {
@@ -37,6 +38,9 @@ export default function Navbar() {
                             </Button>
                         </SignInButton>
                     </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
                 </div>
             </div>
         </nav>
