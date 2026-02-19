@@ -48,7 +48,8 @@ model Vote {
     post   Post @relation(fields: [postId], references: [id])
     postId Int
 
-    // @@map("votes")
+    @@unique([userId, postId])
+    @@map("votes")
 }
 
 enum Role {
