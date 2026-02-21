@@ -1,5 +1,3 @@
 export default async function NewFeedbackPage() {
-    return (
-        <>New Feedback Page</>
-    )
+    return <>New Feedback Page</>
 }
