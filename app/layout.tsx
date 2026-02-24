@@ -6,9 +6,9 @@ import { Toaster } from "sonner";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import { syncCurrentUser } from '@/lib/sync-user';
 
 import "./globals.css";
+import { syncCurrentUser } from '@/lib/sync-user';
 
 const inter = Inter({
   subsets: ["latin"]
@@ -40,7 +40,7 @@ export default async function RootLayout({
             <Navbar />
             <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
             <Footer />
-            <Toaster />
+            <Toaster richColors />
           </ThemeProvider>
         </body>
       </html>
