@@ -1,7 +1,7 @@
 "use client";
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import { Map, MessageSquare, Sparkle } from "lucide-react";
+import { Map, MessageSquare, Shield, Sparkle } from "lucide-react";
 import Link from "next/link";
 
 import ThemeToggle from "./theme-toggle";
@@ -28,6 +28,13 @@ export default function Navbar() {
                         <MessageSquare className="h-4 w-4" />
                         Feedback
                     </Link>
+                    {/* Admin Link */}
+                    <SignedIn>
+                        <Link href="/admin" className="text-sm hover:text-primary transition-colors flex items-center gap-1">
+                            <Shield className="h-4 w-4" />
+                            Admin
+                        </Link>
+                    </SignedIn>
                 </div>
                 <div className="flex items-center gap-4">
                     <ThemeToggle />

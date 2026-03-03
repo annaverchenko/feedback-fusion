@@ -3,13 +3,13 @@ import { GradientHeader } from "@/components/gradient-header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import prisma from "@/lib/prisma";
-import { BarChart, BarChart3, CheckCheck, Clock, Target } from "lucide-react";
+import { BarChart3, CheckCheck, Clock, Target } from "lucide-react";
 import { STATUS_GROUPS, STATUS_ORDER } from "../data/status-data";
 import { Badge } from "@/components/ui/badge";
 
 function getStatusPercentage (posts: any, status: string) {
     const total = posts.length;
-    const count = posts.filter((p: {status: string}) => p.status === status);
+    const count = posts.filter((p: {status: string}) => p.status === status).length;
 
     return total > 0 ? Math.round(count/total * 100) : 0;
 }
