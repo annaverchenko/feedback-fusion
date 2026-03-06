@@ -4,7 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { STATUS_ORDER } from "@/app/data/status-data";
 import prisma from "@/lib/prisma";
 
-export async function PATCH(request: NextRequest, {params}: {params: Promise<{id: number}>}) {
+export async function PATCH(
+    request: NextRequest,
+    {params}: {params: Promise<{id: string}>}) {
     try {
         const { userId } = await auth();
 
